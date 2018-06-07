@@ -1,0 +1,18 @@
+---
+- name: Install perl base packages
+  apt:
+    name: "{{ item}}"
+    state: present
+  with_items: "{{ perl_base_packages }}"
+
+- name: Install perl optional packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ perl_optional_packages }}"
+
+- name: Install CPAN modules
+  cpanm:
+    name: "{{ item }}"
+    system_lib: yes
+  with_items: "{{ perl_cpan_modules }}"

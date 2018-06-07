@@ -1,0 +1,5 @@
+perl_base_packages:
+  - perl
+  - perl-base
+  - perl-doc
+  - build-essential
