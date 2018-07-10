@@ -9,10 +9,12 @@
   apt:
     name: "{{ item }}"
     state: present
-  with_items: "{{ perl_optional_packages }}"
+  with_items: "{{ perl_optional_packages | default(omit) }}"
+  when: perl_optional_packages is defined
 
 - name: Install CPAN modules
   cpanm:
     name: "{{ item }}"
     system_lib: yes
-  with_items: "{{ perl_cpan_modules }}"
+  with_items: "{{ perl_cpan_modules | default(omit) }}"
+  when: perl_cpan_modules is defined
