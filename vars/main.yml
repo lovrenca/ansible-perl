@@ -3,3 +3,4 @@ perl_base_packages:
   - perl-base
   - perl-doc
   - build-essential
+  - cpanminus
